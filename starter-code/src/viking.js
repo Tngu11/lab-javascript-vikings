@@ -24,22 +24,36 @@ class Viking extends Soldier {
     this.strength = strength;
   }
 
-  receiveDamage() {
+  receiveDamage(damage) {
     this.health -= damage;
-  if (this.health > 0) {
-    return this.name + "has received" + receiveDamage() + "points of damage"
+    if (this.health <= 0) {
+      return `${this.name} has died in act of combat`;
+    } else {
+      return `${this.name} has received ${damage} points of damage`;
+    }
   }
-    else return this.name + "has died in act of combat"
+  battleCry() {
+    return "Odin Owns You All!";
   }
 }
 
-//  const Viking = new Viking ("Harald", 300, 150);
-
-// new Viking.receiveDamage(50)
-// new Viking.receiveDamage(75)
-
 // Saxon
-class Saxon {}
+class Saxon extends Soldier {
+  constructor(health, strength) {
+    super(health, strength);
+    this.name = name;
+    this.health = health;
+    this.strength = strength;
+  }
+  receiveDamage(damage) {
+    this.health -= damage;
+    if (this.health <= 0) {
+      return `${this.name} has died in act of combat`;
+    } else {
+      return `${this.name} has received ${damage} points of damage`;
+    }
+  }
+}
 
 // War
 class War {}
